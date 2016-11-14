@@ -1,33 +1,44 @@
 <template lang="html">
   <div class="ab-addone row">
     <div class="col s12">
-      <div class="month">
-        <a class="waves-effect waves-light out">
-          9月支出
-        </a>
-        <a class="waves-effect waves-light in">
-          9月收入
-        </a>
-      </div>
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#income">收入</a></li>
+        <li class="tab col s3"><a class="active" href="#expenditure">支出</a></li>
+      </ul>
     </div>
-    <div class="col s12">
-      
+    <div id="income" class="col s12">Test 1</div>
+    <div id="expenditure" class="col s12">
+      <show-area :item="item"></show-area>
+      <items></items>
     </div>
   </div>
 </template>
 
 <script>
+import ShowArea from './ShowArea.vue'
+import Items from './Items.vue'
 export default {
   data() {
     return {
-
+      item: {}
     };
   },
   computed: {},
-  ready() {},
+  ready() {
+    $('ul.tabs').tabs();
+  },
   attached() {},
   methods: {},
-  components: {}
+  events: {
+    selectedItem( item ) {
+      console.log('hahah',item)
+      this.item = item;
+    }
+  },
+  components: {
+    ShowArea,
+    Items
+  }
 };
 </script>
 

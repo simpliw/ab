@@ -42,7 +42,7 @@ router.map({
     },
     '/main': {
         component: require('./components/Main.vue'),
-        auth: true,
+        auth: false,
         subRoutes: {
           '/': {
             component:require('./components/main/AddOne.vue')
